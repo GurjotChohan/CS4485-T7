@@ -3,10 +3,13 @@ import React, { useContext, createContext, useState } from "react";
 import Navbar from "../components/header";
 import { NavLink } from "react-router-dom";
 import { ChevronLast, ChevronFirst } from "lucide-react";
-import Usecase1 from "../components/usecase1";
-import DataGeneration from "../components/datageneration";
-import UC3 from "../components/Usecase3/frontend/UC3";
+import Usecase1 from '../components/usecase1';
+import DataGeneration from '../components/datageneration';
+import UC3 from '../components/Usecase3/frontend/UC3';
 
+
+
+import DataPipelining from '../components/datapipelining';
 import FaultMainPage from "../components/faultmanagement/mainpage/faultmainpage";
 import FaultSide from "../components/faultmanagement/faultside";
 import DataIngestion from "../components/data_ingestion/DataIngestion";
@@ -62,10 +65,7 @@ export default function Dashboard() {
     { label: "Exploratory Data Analysis", component: <Usecase1 /> },
     { label: "Data Ingestion", component: <DataIngestion /> },
     { label: "Dashboarding", component: <UC3 /> },
-    {
-      label: "Data Pipelining",
-      url: "http://localhost:6789",
-    },
+    { label: 'Data Pipelining', component: <DataPipelining />},
     { label: "KPI Formulas", component: <KPIFormula /> },
     { label: "Data Generation", component: <DataGeneration /> },
     { label: "Fault Management", component: <FaultMainPage /> },
@@ -125,7 +125,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {activeItem !== "KPI Formulas" && (
+        {(
           <div className="bg-blue-300 h-[calc(100vh-4.5rem)] w-[20%] overflow-hidden">
             <FaultSide />
           </div>
